@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Ganta Upendra| Full Stack Developer | Portfolio</title>
+  <meta name="description" content="Professional portfolio of Ganta Upendra, Full Stack Developer specializing in React, Node.js, and AWS Cloud">
+  <meta name="keywords" content="Full Stack Developer, Web Developer, Portfolio, React, Node.js, MongoDB, AWS">
+  <meta name="author" content="Ganta Upendra">
+  <meta property="og:title" content="Ganta Upendra - Full Stack Developer">
+  <meta property="og:description" content="Professional portfolio showcasing my projects and skills">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://upendra938.github.io/portfolio/">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --secondary-color: #2ecc71;
+      --dark-color: #2c3e50;
+      --light-color: #ecf0f1;
+      --sidebar-width: 280px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      width: var(--sidebar-width);
+      background-color: var(--dark-color);
+      color: white;
+      position: fixed;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1rem;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .profile-header {
+      text-align: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .profile-header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .nav-links {
+      list-style: none;
+      flex-grow: 1;
+    }
+
+    .nav-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem 1rem;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      background-color: var(--primary-color);
+    }
+
+    .nav-links i {
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: var(--sidebar-width);
+      width: calc(100% - var(--sidebar-width));
+      min-height: 100vh;
+      transition: all 0.3s ease;
+    }
+
+    /* Hero Section */
+    #home {
+      height: 100vh;
+      background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    #home::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .profile-circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 5px solid var(--primary-color);
+      overflow: hidden;
+      margin: 0 auto 2rem;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .profile-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .job-title {
+      font-size: 2.2rem;
+      margin: 1rem 0;
+      color: var(--secondary-color);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      animation: pulse 2s infinite;
+      font-weight: 600;
+      letter-spacing: 1px;
+      background: rgba(0,0,0,0.3);
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      display: inline-block;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .tagline {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid white;
+    }
+
+    /* Section Styles */
+    .section {
+      min-height: 100vh;
+      padding: 4rem 2rem;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* Unique Backgrounds for Each Section */
+    #about {
+      background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                       url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+    }
+
+    #resume {
+      background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                       url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+    }
+
+    #skills {
+      background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                       url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80');
+    }
+
+    #projects {
+      background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                       url('https://images.unsplash.com/photo-1579403124614-197f69d8187b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80');
+    }
+
+    #contact {
+      background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                       url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80');
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      color: var(--dark-color);
+    }
+
+    .section-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.9);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* About Section */
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    .about-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .animated-boy {
+      width: 300px;
+      height: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0 auto;
+      border: 5px solid var(--primary-color);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animated-boy img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Interactive Resume Section */
+    .resume-container {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .resume-tabs {
+      flex: 0 0 250px;
+    }
+
+    .resume-tab-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+      background: white;
+      border: none;
+      border-left: 4px solid #ddd;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .resume-tab-btn.active {
+      border-left: 4px solid var(--primary-color);
+      background: #f0f8ff;
+    }
+
+    .resume-content {
+      flex: 1;
+    }
+
+    .resume-panel {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .resume-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: var(--primary-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      border: 3px solid white;
+    }
+
+    .timeline-date {
+      color: #777;
+      font-style: italic;
+    }
+
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .skills-category {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .skills-category h3 {
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #f0f0f0;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    .skill-item i {
+      color: var(--primary-color);
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .project-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .project-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-features span {
+      background: #e3f2fd;
+      color: var(--primary-color);
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+    }
+
+    /* Enhanced Contact Form */
+    .contact-container {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .contact-form {
+      flex: 1;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      color: #777;
+      transition: all 0.3s;
+      pointer-events: none;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    }
+
+    .form-group input:focus + label,
+    .form-group textarea:focus + label,
+    .form-group input:not(:placeholder-shown) + label,
+    .form-group textarea:not(:placeholder-shown) + label {
+      top: -0.8rem;
+      left: 0.8rem;
+      font-size: 0.8rem;
+      background: white;
+      padding: 0 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .form-group textarea {
+      height: 150px;
+      resize: vertical;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-item i {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      width: 40px;
+      text-align: center;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .about-content,
+      .contact-container,
+      .resume-container {
+        flex-direction: column;
+      }
+      
+      .about-image {
+        order: -1;
+        margin-bottom: 2rem;
+      }
+
+      .resume-tabs {
+        display: flex;
+        overflow-x: auto;
+        gap: 0.5rem;
+        padding-bottom: 1rem;
+      }
+
+      .resume-tab-btn {
+        white-space: nowrap;
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 70px;
+        overflow: hidden;
+      }
+      
+      .sidebar:hover {
+        width: var(--sidebar-width);
+      }
+      
+      .profile-header h1, .nav-links a span {
+        display: none;
+      }
+      
+      .sidebar:hover .profile-header h1,
+      .sidebar:hover .nav-links a span {
+        display: block;
+      }
+      
+      .main-content {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+      }
+      
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .job-title {
+        font-size: 1.5rem;
+      }
+
+      .projects-grid,
+      .certifications-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Vertical Sidebar -->
+  <aside class="sidebar">
+    <div class="profile-header">
+      <h1>GANTA UPENDRA</h1>
+      <p>Full Stack Developer</p>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a href="#home" class="active"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+      <li><a href="#resume"><i class="fas fa-file-alt"></i> <span>Resume</span></a></li>
+      <li><a href="#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+      <li><a href="#projects"><i class="fas fa-project-diagram"></i> <span>Projects</span></a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+    
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/ganta-upendra-9820282bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/upendra938" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Home Section -->
+    <section id="home" class="section">
+      <div class="hero-content">
+        <div class="profile-circle">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxWotnFTwop6bjGGph3ewcZgCTU0eU7i6XEqsmQ4lQakEX-fOyznzEbtLDF_rhau0fY8o&usqp=CAU" alt="Ganta Upendra">
+        </div>
+        <h1>Ganta Upendra</h1>
+        <h2 class="job-title">FULL STACK DEVELOPER</h2>
+        <p class="tagline">Building innovative web solutions with modern technologies</p>
+        <div class="cta-buttons">
+          <a href="#projects" class="btn">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <div class="section-content">
+        <div class="about-content">
+          <div class="about-text">
+            <p>I am a passionate Full Stack Developer currently pursuing my BTech at Nadimpalli Satya Narayana Raju Institute of Technology. With expertise in both frontend and backend technologies, I create robust and scalable web applications.</p>
+            <p>My journey in technology began with my schooling at Z.P.High School and continued through my intermediate studies at S.L.G.Junior College. I recently completed a summer internship at APSSDC focusing on AWS Cloud Computing.</p>
+            <p>I specialize in building responsive web applications using modern technologies like React, Node.js, and MongoDB, with additional expertise in Java and Python programming.</p>
+          </div>
+          <div class="about-image">
+            <div class="animated-boy">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxWotnFTwop6bjGGph3ewcZgCTU0eU7i6XEqsmQ4lQakEX-fOyznzEbtLDF_rhau0fY8o&usqp=CAU" alt="Ganta Upendra">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Resume Section -->
+    <section id="resume" class="section">
+      <h2>My Resume</h2>
+      <div class="section-content">
+        <div class="resume-container">
+          <div class="resume-tabs">
+            <button class="resume-tab-btn active" data-tab="education">Education</button>
+            <button class="resume-tab-btn" data-tab="experience">Experience</button>
+            <button class="resume-tab-btn" data-tab="certifications">Certifications</button>
+          </div>
+          <div class="resume-content">
+            <div class="resume-panel active" id="education">
+              <h3>Education</h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <h4>BTech in Computer Science</h4>
+                  <p class="timeline-date">2023 - 2027 (Currently 3rd Year)</p>
+                  <p>Nadimpalli Satya Narayana Raju Institute of Technology</p>
+                </div>
+                <div class="timeline-item">
+                  <h4>Intermediate (MPC)</h4>
+                  <p class="timeline-date">2021 - 2023</p>
+                  <p>S.L.G. Junior College, VZM</p>
+                </div>
+                <div class="timeline-item">
+                  <h4>SSC (10th Grade)</h4>
+                  <p class="timeline-date">2020 - 2021</p>
+                  <p>Z.P.High School, maruwada</p>
+                </div>
+              </div>
+            </div>
+            <div class="resume-panel" id="experience">
+              <h3>Professional Experience</h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <h4>Summer Intern - AWS Cloud Computing</h4>
+                  <p class="timeline-date">Summer 2025</p>
+                  <p>APSSDC (Andhra Pradesh State Skill Development Corporation)</p>
+                  <ul>
+                    <li>Learned AWS cloud infrastructure and deployment</li>
+                    <li>Developed cloud-based applications</li>
+                    <li>Implemented CI/CD pipelines</li>
+                  </ul>
+                </div>
+                <div class="timeline-item">
+                  <h4>Freelance Web Developer</h4>
+                  <p class="timeline-date">2024 - Present</p>
+                  <p>Self-Employed</p>
+                  <ul>
+                    <li>Built responsive websites for small businesses</li>
+                    <li>Developed custom web applications</li>
+                    <li>Provided technical consulting services</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="resume-panel" id="certifications">
+              <h3>Certifications</h3>
+              <div class="certifications-grid">
+                <div class="certification-card">
+                  <div class="certification-header">
+                    <i class="fab fa-aws certification-icon"></i>
+                    <div>
+                      <h4 class="certification-title">AWS Cloud Computing</h4>
+                      <p class="certification-issuer">APSSDC Summer Internship</p>
+                    </div>
+                  </div>
+                  <p class="certification-date">Completed 2025</p>
+                </div>
+                <div class="certification-card">
+                  <div class="certification-header">
+                    <i class="fas fa-database certification-icon"></i>
+                    <div>
+                      <h4 class="certification-title">MongoDB Developer</h4>
+                      <p class="certification-issuer">MongoDB University</p>
+                    </div>
+                  </div>
+                  <p class="certification-date">Completed 2024</p>
+                </div>
+                <div class="certification-card">
+                  <div class="certification-header">
+                    <i class="fab fa-js certification-icon"></i>
+                    <div>
+                      <h4 class="certification-title">JavaScript Algorithms</h4>
+                      <p class="certification-issuer">FreeCodeCamp</p>
+                    </div>
+                  </div>
+                  <p class="certification-date">Completed 2024</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <h2>Skills & Expertise</h2>
+      <div class="section-content">
+        <div class="skills-container">
+          <div class="skills-category">
+            <h3><i class="fas fa-laptop-code"></i> Frontend Development</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <i class="fab fa-html5"></i>
+                <span>HTML5</span>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-css3-alt"></i>
+                <span>CSS3</span>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-js"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-react"></i>
+                <span>React.js</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="skills-category">
+            <h3><i class="fas fa-server"></i> Backend Development</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <i class="fab fa-node-js"></i>
+                <span>Node.js</span>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-java"></i>
+                <span>Java</span>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-python"></i>
+                <span>Python</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="skills-category">
+            <h3><i class="fas fa-database"></i> Databases & Cloud</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <span>MongoDB</span>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-aws"></i>
+                <span>AWS Cloud</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-database"></i>
+                <span>SQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <h2>My Projects</h2>
+      <div class="section-content">
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Spend Alert – Hackathon Project (2024)</h3>
+            <p>A budget tracking app built during a college hackathon. It allows users to log expenses, categorize spending, and get alerts when nearing a set budget limit. Designed with a clean UI and real-time calculation features.</p>
+            <div class="project-features">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>MongoDB</span>
+              <span>Hackathon</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-small"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="btn btn-small btn-outline">Live Demo</a>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <h3>Train Ticket Booking Webpage</h3>
+            <p>A vibrant, animated train ticket booking page with features like seat availability charts, live train tracking, and arrival notifications. Built using HTML, CSS animations, and JavaScript for dynamic interactivity.</p>
+            <div class="project-features">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+              <span>Animations</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-small"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="btn btn-small btn-outline">Live Demo</a>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <h3>Flight Booking Form</h3>
+            <p>A sleek, animated flight ticket booking system with flight-themed backgrounds, interactive form validation, seat selection animations, QR ticket generation, and PDF export functionality.</p>
+            <div class="project-features">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>PDF Generation</span>
+              <span>UI/UX</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="btn btn-small"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="btn btn-small btn-outline">Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section with Email Notifications -->
+    <section id="contact" class="section">
+      <h2>Contact Me</h2>
+      <div class="section-content">
+        <div class="contact-container">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" id="name" placeholder=" " required>
+              <label for="name">Your Name</label>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" placeholder=" " required>
+              <label for="email">Your Email</label>
+            </div>
+            <div class="form-group">
+              <textarea id="message" placeholder=" " required></textarea>
+              <label for="message">Your Message</label>
+            </div>
+            <button type="submit" class="btn">
+              <span class="btn-text">Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+            <div id="formStatus"></div>
+          </form>
+          <div class="contact-info">
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h3>Email</h3>
+                <p>upendraupendrag92@gmail.com</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h3>Location</h3>
+                <p>Hyderabad, India</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h3>Phone</h3>
+                <p>+91 XXXXXXXXXX</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+        
+        // Update active class in sidebar
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.classList.remove('active');
+        });
+        this.classList.add('active');
+      });
+    });
+
+    // Interactive Resume Tabs
+    const tabButtons = document.querySelectorAll('.resume-tab-btn');
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons and panels
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.resume-panel').forEach(panel => {
+          panel.classList.remove('active');
+        });
+        
+        // Add active class to clicked button and corresponding panel
+        button.classList.add('active');
+        const tabId = button.getAttribute('data-tab');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+
+    // Form Submission with Email Notification
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const formData = new FormData(form);
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const statusDiv = document.getElementById('formStatus');
+      
+      // Disable button during submission
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      
+      try {
+        // Simulate form submission (in a real scenario, use FormSubmit.co or similar service)
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Show success message
+        statusDiv.innerHTML = '<div class="alert success">Thank you! Your message has been sent successfully.</div>';
+        form.reset();
+        
+        // In a real implementation, you would use:
+        // const response = await fetch('https://formsubmit.co/ajax/your@email.com', {
+        //   method: 'POST',
+        //   body: formData
+        // });
+        // const result = await response.json();
+        // if (result.success) { ... }
+        
+      } catch (error) {
+        statusDiv.innerHTML = '<div class="alert error">Sorry, there was an error sending your message. Please try again later.</div>';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span class="btn-text">Send Message</span> <i class="fas fa-paper-plane"></i>';
+        
+        // Remove status message after 5 seconds
+        setTimeout(() => {
+          statusDiv.innerHTML = '';
+        }, 5000);
+      }
+    });
+
+    // Highlight active section on scroll
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      
+      document.querySelectorAll('section').forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
